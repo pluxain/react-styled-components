@@ -2,9 +2,8 @@ import { styled } from "styled-components";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import "./App.css";
-import { Card, DocBlock, Image, Link, Title } from "./components";
+import { Card, DocBlock, Link, Logo, StyledLink, Title } from "./components";
 import { Counter } from "./features/counter";
-import { StyledLink } from "./components/Link";
 
 const CounterWrapper = styled.div`
   display: flex;
@@ -18,10 +17,10 @@ function App() {
     <>
       <div>
         <Link to="https://vite.dev">
-          <Image src={viteLogo} alt="Vite logo" />
+          <Logo src={viteLogo} alt="Vite logo" />
         </Link>
         <Link to="https://react.dev">
-          <Image src={reactLogo} alt="React logo" />
+          <Logo src={reactLogo} alt="React logo" />
         </Link>
       </div>
       <Title>
