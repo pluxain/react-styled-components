@@ -1,9 +1,9 @@
-type Props = {
-  children: React.ReactNode;
-};
+import styled from "styled-components";
 
-function Title({ children: text }: Props) {
-  return <h1>{text}</h1>;
-}
+const Title = styled.h1`
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: slategray;
+`;
 
 export { Title };
