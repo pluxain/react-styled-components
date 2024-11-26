@@ -1,9 +1,8 @@
-type Props = {
-  children: React.ReactNode;
-};
+import styled from "styled-components";
 
-function Card({ children }: Props) {
-  return <div className="card">{children}</div>;
-}
+const Card = styled.div`
+  padding: 2em;
+  background-color: antiquewhite;
+`;
 
 export { Card };
