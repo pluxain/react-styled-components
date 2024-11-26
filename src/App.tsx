@@ -3,6 +3,7 @@ import viteLogo from "./assets/vite.svg";
 import "./App.css";
 import { Card, DocBlock, Image, Link, Title } from "./components";
 import { Counter } from "./features/counter";
+import { StyledLink } from "./components/Link";
 
 function App() {
   return (
@@ -15,7 +16,10 @@ function App() {
           <Image src={reactLogo} alt="React logo" />
         </Link>
       </div>
-      <Title>Vite + React</Title>
+      <Title>
+        <Link to="https://vite.dev">Vite</Link> +{" "}
+        <StyledLink to="https://react.dev">React</StyledLink>
+      </Title>
       <Card>
         <div className="flex justify-around items-center gap-4">
           <Counter start={1} />
