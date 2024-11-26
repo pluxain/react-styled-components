@@ -1,9 +1,9 @@
-type Props = {
-  children: React.ReactNode;
-};
+import styled from "styled-components";
 
-function DocBlock({ children }: Props) {
-  return <p className="read-the-docs">{children}</p>;
-}
+const DocBlock = styled.p`
+  padding: 2em;
+  background-color: aliceblue;
+  color: #888;
+`;
 
 export { DocBlock };
