@@ -33,6 +33,17 @@ const StyledButton = styled.button<StyledButtonProps>`
   }
 `;
 
+// A new component based on Button, but with some override styles
+const StyledTomatoButton = styled(StyledButton)`
+  background: ${(props) => (props.$primary ? "tomato" : "white")};
+  color: ${(props) => (props.$primary ? "white" : "tomato")};
+  border-color: tomato;
+
+  &:hover {
+    border-color: ${(props) => (props.$primary ? "white" : "tomato")};
+  }
+`;
+
 function Button({ children, onClick, $primary }: ButtonProps) {
   return (
     <StyledButton onClick={onClick} $primary={$primary}>
@@ -41,4 +52,12 @@ function Button({ children, onClick, $primary }: ButtonProps) {
   );
 }
 
-export { Button };
+function TomatoButton({ children, onClick, $primary }: ButtonProps) {
+  return (
+    <StyledTomatoButton onClick={onClick} $primary={$primary}>
+      {children}
+    </StyledTomatoButton>
+  );
+}
+
+export { Button, TomatoButton };

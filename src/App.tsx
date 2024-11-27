@@ -2,10 +2,19 @@ import { styled } from "styled-components";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import "./App.css";
-import { Card, DocBlock, Link, Logo, StyledLink, Title } from "./components";
+import {
+  Button,
+  Card,
+  DocBlock,
+  Link,
+  Logo,
+  StyledLink,
+  Title,
+} from "./components";
 import { Counter } from "./features/counter";
+import { TomatoButton } from "./components/Button";
 
-const CounterWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -28,13 +37,25 @@ function App() {
         <StyledLink to="https://react.dev">React</StyledLink>
       </Title>
       <Card>
-        <CounterWrapper>
+        <Title>Counters</Title>
+        <Wrapper>
           <Counter start={1} />
           <Counter start={0} step={2} />
-        </CounterWrapper>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        </Wrapper>
+      </Card>
+      <hr />
+      <Card>
+        <Title>Buttons</Title>
+        <Wrapper>
+          <Button onClick={() => {}}>Normal Button</Button>
+          <Button onClick={() => {}} $primary>
+            Primary Normal Button
+          </Button>
+          <TomatoButton onClick={() => {}}>Tomato Button</TomatoButton>
+          <TomatoButton onClick={() => {}} $primary>
+            Primary Tomato Button
+          </TomatoButton>
+        </Wrapper>
       </Card>
       <DocBlock>Click on the Vite and React logos to learn more</DocBlock>
     </>
