@@ -1,23 +1,30 @@
 import { styled } from "styled-components";
 
-type Props = {
+type StyledButtonProps = {
+  $primary?: boolean;
+};
+
+type ButtonProps = StyledButtonProps & {
   children: React.ReactNode;
   onClick: () => void;
 };
 
-const StyleButton = styled.button`
+const StyledButton = styled.button<StyledButtonProps>`
+  /* Adapt the colors based on primary prop */
+  background: ${(props) => (props.$primary ? "#BF4F74" : "white")};
+  color: ${(props) => (props.$primary ? "white" : "#BF4F74")};
+
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 2px solid #bf4f74;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #f9f9f9;
   cursor: pointer;
   transition: border-color 0.25s;
 
   &:hover {
-    border-color: #646cff;
+    border-color: ${(props) => (props.$primary ? "white" : "#BF4F74")};
   }
 
   &:focus,
@@ -26,8 +33,12 @@ const StyleButton = styled.button`
   }
 `;
 
-function Button({ children, onClick }: Props) {
-  return <StyleButton onClick={onClick}>{children}</StyleButton>;
+function Button({ children, onClick, $primary }: ButtonProps) {
+  return (
+    <StyledButton onClick={onClick} $primary={$primary}>
+      {children}
+    </StyledButton>
+  );
 }
 
 export { Button };

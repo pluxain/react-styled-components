@@ -9,7 +9,7 @@ type Props = {
 function Counter({ start, step = 1 }: Props) {
   const [count, setCount] = useState(start);
   return (
-    <Button onClick={() => setCount((count) => count + step)}>
+    <Button $primary onClick={() => setCount((count) => count + step)}>
       count is {count}
     </Button>
   );
