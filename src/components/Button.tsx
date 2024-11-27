@@ -1,15 +1,10 @@
 import { styled } from "styled-components";
 
-type StyledButtonProps = {
+type ButtonProps = {
   $primary?: boolean;
 };
 
-type ButtonProps = StyledButtonProps & {
-  children: React.ReactNode;
-  onClick: () => void;
-};
-
-const StyledButton = styled.button<StyledButtonProps>`
+const Button = styled.button<ButtonProps>`
   /* Adapt the colors based on primary prop */
   background: ${(props) => (props.$primary ? "#BF4F74" : "white")};
   color: ${(props) => (props.$primary ? "white" : "#BF4F74")};
@@ -22,6 +17,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
+  text-decoration: none;
 
   &:hover {
     border-color: ${(props) => (props.$primary ? "white" : "#BF4F74")};
@@ -34,7 +30,7 @@ const StyledButton = styled.button<StyledButtonProps>`
 `;
 
 // A new component based on Button, but with some override styles
-const StyledTomatoButton = styled(StyledButton)`
+const TomatoButton = styled(Button)`
   background: ${(props) => (props.$primary ? "tomato" : "white")};
   color: ${(props) => (props.$primary ? "white" : "tomato")};
   border-color: tomato;
@@ -43,21 +39,5 @@ const StyledTomatoButton = styled(StyledButton)`
     border-color: ${(props) => (props.$primary ? "white" : "tomato")};
   }
 `;
-
-function Button({ children, onClick, $primary }: ButtonProps) {
-  return (
-    <StyledButton onClick={onClick} $primary={$primary}>
-      {children}
-    </StyledButton>
-  );
-}
-
-function TomatoButton({ children, onClick, $primary }: ButtonProps) {
-  return (
-    <StyledTomatoButton onClick={onClick} $primary={$primary}>
-      {children}
-    </StyledTomatoButton>
-  );
-}
 
 export { Button, TomatoButton };

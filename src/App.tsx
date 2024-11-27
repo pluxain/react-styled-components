@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { styled } from "styled-components";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
@@ -45,15 +46,51 @@ function App() {
       </Card>
       <hr />
       <Card>
-        <Title>Buttons</Title>
+        <Title>Extending styles</Title>
         <Wrapper>
-          <Button onClick={() => {}}>Normal Button</Button>
-          <Button onClick={() => {}} $primary>
+          <Button
+            onClick={() => {
+              console.log("Normal Button clicked");
+            }}
+          >
+            Normal Button
+          </Button>
+          <Button
+            onClick={() => {
+              console.log("Primary Normal Button clicked");
+            }}
+            $primary
+          >
             Primary Normal Button
           </Button>
-          <TomatoButton onClick={() => {}}>Tomato Button</TomatoButton>
-          <TomatoButton onClick={() => {}} $primary>
+          <TomatoButton
+            onClick={() => {
+              console.log("Tomato Button clicked");
+            }}
+          >
+            Tomato Button
+          </TomatoButton>
+          <TomatoButton
+            onClick={() => {
+              console.log("Primary Tomato Button clicked");
+            }}
+            $primary
+          >
             Primary Tomato Button
+          </TomatoButton>
+        </Wrapper>
+        <Wrapper>
+          <Button as="a" href="#">
+            Link styled like a Normal Button
+          </Button>
+          <Button as="a" href="#">
+            Link styled like Primary Normal Button
+          </Button>
+          <TomatoButton as="a" href="#">
+            Link styled like a Tomato Button
+          </TomatoButton>
+          <TomatoButton as="a" href="#" $primary>
+            Link styled like a Primary Tomato Button
           </TomatoButton>
         </Wrapper>
       </Card>
